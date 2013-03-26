@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("LocalPort")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Toshiba")]
+[assembly: AssemblyCompany("Simon Yoffe")]
 [assembly: AssemblyProduct("LocalPort")]
-[assembly: AssemblyCopyright("Copyright © Toshiba 2012")]
+[assembly: AssemblyCopyright("Copyright © Simon Yoffe 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
