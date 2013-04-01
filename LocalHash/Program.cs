@@ -133,14 +133,8 @@ namespace LocalHash
         {
             var hashOptions = new HashOptions();
             hashOptions.SourceFilename = args[0];
-            OptionValidators.ValidatePath("source filename", hashOptions.SourceFilename);
-            foreach (var option in args.Skip(1))
-            {
-                if (false == Program.HashOptionDescriptorSet.Apply(hashOptions, option))
-                {
-                    throw new ArgumentException("Invalid argument", option);
-                }
-            }
+            OptionValidators.ValidatePath("source filename", hashOptions.SourceFilename);            
+            Program.HashOptionDescriptorSet.Apply(hashOptions, args.Skip(1));
             return hashOptions;
         }
 

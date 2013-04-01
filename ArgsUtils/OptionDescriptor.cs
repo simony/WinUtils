@@ -31,7 +31,7 @@ namespace ArgsUtils
                 this._shortKey, this._longKey, this._description);
         }
 
-        public override bool Apply(T options, string optionValue)
+        public override bool TryApply(T options, string optionValue)
         {
             if ((optionValue != this._shortKey) &&
                 (optionValue != this._longKey))
@@ -76,7 +76,7 @@ namespace ArgsUtils
                 this._shortKey, this._longKey, this._description, this._parameterName);
         }
 
-        public override bool Apply(T options, string optionValue)
+        public override bool TryApply(T options, string optionValue)
         {
             if (optionValue.StartsWith(this._shortKey))
             {

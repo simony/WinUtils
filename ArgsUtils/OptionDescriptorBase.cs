@@ -28,7 +28,7 @@ namespace ArgsUtils
 
         #region Public Methods
 
-        public abstract bool Apply(T options, string optionValue);
+        public abstract bool TryApply(T options, string optionValue);
 
         #endregion
     }

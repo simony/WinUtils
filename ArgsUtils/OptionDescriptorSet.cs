@@ -51,16 +51,32 @@ namespace ArgsUtils
             return builder.ToString();
         }
 
-        public bool Apply(T options, string optionValue)
+        public bool TryApply(T options, string optionValue)
         {
             foreach (var optionDescriptor in this)
             {
-                if (optionDescriptor.Apply(options, optionValue))
+                if (optionDescriptor.TryApply(options, optionValue))
                 {
                     return true;
                 }
             }
             return false;
+        }
+
+        public void Apply(T options, string optionValue)
+        {
+            if (false == this.TryApply(options, optionValue))
+            {
+                throw new ArgumentException("Invalid argument", optionValue);
+            }
+        }
+
+        public void Apply(T options, IEnumerable<string> optionValues)
+        {
+            foreach (var optionValue in optionValues)
+            {
+                this.TryApply(options, optionValue);
+            }
         }
 
         #endregion

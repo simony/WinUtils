@@ -92,14 +92,8 @@ namespace LocalPort
             portOptions.SourcePort = int.Parse(args[0]);
             portOptions.TargetAddress = args[1];
             portOptions.TargetPort = int.Parse(args[2]);
-            
-            foreach (var option in args.Skip(3))
-            {
-                if (false == Program.PortOptionDescriptorSet.Apply(portOptions, option))
-                {
-                    throw new ArgumentException("Invalid argument", option);
-                }
-            }
+
+            Program.PortOptionDescriptorSet.Apply(portOptions, args.Skip(3));            
             return portOptions;
         }
 

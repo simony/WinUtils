@@ -134,14 +134,8 @@ namespace LocalCopy
             copyOptions.SourceFilename = args[0];
             OptionValidators.ValidatePath("source filename", copyOptions.SourceFilename);
             copyOptions.TargetFilename = args[1];
-            OptionValidators.ValidatePath("target filename", copyOptions.TargetFilename);
-            foreach (var option in args.Skip(2))
-            {
-                if (false == Program.CopyOptionDescriptorSet.Apply(copyOptions, option))
-                {
-                    throw new ArgumentException("Invalid argument", option);
-                }
-            }
+            OptionValidators.ValidatePath("target filename", copyOptions.TargetFilename);            
+            Program.CopyOptionDescriptorSet.Apply(copyOptions, args.Skip(2));
             return copyOptions;
         }
 

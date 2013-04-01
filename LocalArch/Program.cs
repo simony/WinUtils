@@ -193,17 +193,11 @@ namespace LocalArch
 
         private static ArchOptions ParseArgs(string[] args)
         {
-            var hashOptions = new ArchOptions();
-            hashOptions.SourceFilename = args[0];
-            OptionValidators.ValidatePath("source filename", hashOptions.SourceFilename);
-            foreach (var option in args.Skip(1))
-            {
-                if (false == Program.ArchOptionDescriptorSet.Apply(hashOptions, option))
-                {
-                    throw new ArgumentException("Invalid argument", option);
-                }
-            }
-            return hashOptions;
+            var archOptions = new ArchOptions();
+            archOptions.SourceFilename = args[0];
+            OptionValidators.ValidatePath("source filename", archOptions.SourceFilename);
+            Program.ArchOptionDescriptorSet.Apply(archOptions, args.Skip(1));
+            return archOptions;
         }
 
         public static void PrintUsage()
